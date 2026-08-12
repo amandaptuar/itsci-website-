@@ -488,8 +488,10 @@ p{margin:0;}
           <li><a href="/about">About Us</a></li>
           <li><a className="is-active" href="/services">Services</a></li>
           <li><a href="/brands">Brands</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
-        <a href="/about" className="btn btn--primary nav__cta">Let's Connect</a>
+        <a href="/contact" className="btn btn--primary nav__cta">Contact Us</a>
       </div>
     </nav>
 
