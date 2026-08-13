@@ -1,31 +1,9 @@
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 import React, { useEffect } from "react";
 import serviceCtaBg from "../assets/service-cta-bg.png";
 
 export default function TelecomManagementServices() {
-  useEffect(() => {
-    const toggle = document.getElementById('navToggle');
-    const nav = document.getElementById('nav');
-    if(toggle && nav) {
-      const handler = () => {
-        const open = nav.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      };
-      toggle.addEventListener('click', handler);
-      
-      const links = document.querySelectorAll('.nav__links a:not(.has-dropdown), .nav__cta');
-      const closeHandler = () => {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      };
-      links.forEach(a => a.addEventListener('click', closeHandler));
-      
-      return () => {
-        toggle.removeEventListener('click', handler);
-        links.forEach(a => a.removeEventListener('click', closeHandler));
-      };
-    }
-  }, []);
 
   return (
     <div className="telecom-page">
@@ -208,40 +186,7 @@ p{margin:0;}
         <div className="hero__bg" aria-hidden="true">
         </div>
         <div className="container">
-          <nav className="nav" id="nav">
-            <a className="logo" href="/">
-              <span className="logo__name">I T S C I</span>
-              <span className="logo__tag">INNOVATE · TRANSFORM · SECURE</span>
-            </a>
-            <button className="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-              <span></span><span></span><span></span>
-            </button>
-            <div className="nav__menu" id="navMenu">
-              <ul className="nav__links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li className="has-dropdown">
-                  <a className="is-active" href="/services">Services</a>
-                  <ul className="nav__dropdown">
-                    <li><a href="/services">All Services</a></li>
-                    <li><a href="/services/data-center">Data Center Services</a></li>
-                    <li><a href="/services/telecom-management">Telecom Management Services</a></li>
-                    <li><a href="/services/infrastructure">Infrastructure Services</a></li>
-                    <li><a href="/services/security">Security Services</a></li>
-                    <li><a href="/services/cloud-solutions">Cloud Solutions</a></li>
-                    <li><a href="/services/network-design">Network Design</a></li>
-                    <li><a href="/services/saas">SaaS</a></li>
-                    <li><a href="/services/ai-development">AI Development</a></li>
-                    <li><a href="/services/scada">SCADA</a></li>
-                  </ul>
-                </li>
-                <li><a href="/brands">Brands</a></li>
-                <li><a href="/resources">Resources</a></li>
-                <li><a href="/contact">Contact</a></li>
-              </ul>
-              <a href="/contact" className="btn btn--primary nav__cta">Contact Us</a>
-            </div>
-          </nav>
+          <Navbar />
 
           <div className="hero__grid">
             <div className="hero__copy">
@@ -295,26 +240,7 @@ p{margin:0;}
         </div>
       </section>
 
-      <footer className="footer" id="contact">
-        <div className="container footer__grid">
-          <div className="footer__col">
-            <a className="logo" href="/">
-              <span className="logo__name">I T S C I</span>
-              <span className="logo__tag">INNOVATE · TRANSFORM · SECURE</span>
-            </a>
-            <p className="footer__about">ITSCI is a trusted technology partner helping businesses and organizations build secure, scalable and future-ready digital solutions.</p>
-          </div>
-          <div className="footer__col">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/services">Services</a></li>
-              <li><a href="/brands">Our Brands</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
