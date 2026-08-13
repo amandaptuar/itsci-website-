@@ -163,12 +163,29 @@ p{margin:0;}
 }
 .nav__menu{display:flex;align-items:center;gap:30px;}
 .nav__links{display:flex;align-items:center;gap:28px;}
+.nav__links > li{position:relative;}
 .nav__links a{
   display:inline-flex;align-items:center;gap:5px;
   font-family:var(--ff-display);font-size:16px;font-weight:500;color:#2C3A4F;
   transition:color .18s ease;
 }
 .nav__links a:hover,.nav__links a.is-active{color:var(--blue-500);}
+
+.nav__dropdown{
+  position:absolute;top:100%;left:0;background:#fff;border-radius:8px;
+  box-shadow:0 12px 35px rgba(0,0,0,0.12);padding:10px 0;min-width:240px;
+  opacity:0;visibility:hidden;transform:translateY(-15px) scale(0.96);
+  transform-origin:top center;
+  transition:opacity 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1), visibility 0.4s;
+  z-index:50;pointer-events:none;
+}
+.nav__links li:hover .nav__dropdown{
+  opacity:1;visibility:visible;transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+.nav__dropdown a{display:block;padding:8px 20px;font-size:15px;color:var(--ink-600);}
+.nav__dropdown a:hover{background:var(--surface-2);color:var(--blue-500);}
+
 .caret{width:13px;height:13px;}
 .nav__cta{padding:11px 22px;border-radius:8px;}
 .nav__toggle{
@@ -486,7 +503,21 @@ p{margin:0;}
         <ul className="nav__links">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About Us</a></li>
-          <li><a className="is-active" href="/services">Services</a></li>
+          <li className="has-dropdown">
+            <a className="is-active" href="/services">Services</a>
+            <ul className="nav__dropdown">
+              <li><a href="/services">All Services</a></li>
+              <li><a href="/services/data-center">Data Center Services</a></li>
+              <li><a href="/services/telecom-management">Telecom Management Services</a></li>
+              <li><a href="/services/infrastructure">Infrastructure Services</a></li>
+              <li><a href="/services/security">Security Services</a></li>
+              <li><a href="/services/cloud-solutions">Cloud Solutions</a></li>
+              <li><a href="/services/network-design">Network Design</a></li>
+              <li><a href="/services/saas">SaaS</a></li>
+              <li><a href="/services/ai-development">AI Development</a></li>
+              <li><a href="/services/scada">SCADA</a></li>
+            </ul>
+          </li>
           <li><a href="/brands">Brands</a></li>
           <li><a href="/resources">Resources</a></li>
           <li><a href="/contact">Contact</a></li>
