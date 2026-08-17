@@ -78,7 +78,6 @@ export default function Navbar() {
           <li><a href="/resources">Resources</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
-        <a href="/contact" className="btn btn--primary nav__cta">Contact Us</a>
       </div>
     </nav>
   );

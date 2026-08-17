@@ -638,25 +638,7 @@ p{margin:0;}
       <article className="leader">
         <div className="leader__media">
           <div className="leader__photo">
-            
-            <div className="placeholder placeholder--avatar"><span className="ph-label">Photo<br />108 × 108</span></div>
-          </div>
-          <a href="https://linkedin.com" className="leader__linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 8.5H4V20h2.94V8.5ZM5.47 3.9a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4ZM20 13.63c0-3.1-1.66-4.54-3.87-4.54-1.78 0-2.58 1-3.02 1.68V8.5H10.2c.04.83 0 11.5 0 11.5h2.9v-6.42c0-.26.02-.52.1-.7.2-.52.68-1.06 1.48-1.06 1.05 0 1.47.8 1.47 1.96V20H20v-6.37Z"/></svg>
-          </a>
-        </div>
-        <div>
-          <h3 className="leader__name">Atul Jain</h3>
-          <p className="leader__role">Chief Technology Officer (CTO)</p>
-          <p className="leader__bio">Visionary technologist with extensive experience in architecting scalable IT infrastructure, AI solutions, and digital transformation initiatives.</p>
-        </div>
-      </article>
-
-      <article className="leader">
-        <div className="leader__media">
-          <div className="leader__photo">
-            
-            <div className="placeholder placeholder--avatar"><span className="ph-label">Photo<br />108 × 108</span></div>
+            <img src="/image.png" alt="St Francis Holder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <a href="https://linkedin.com" className="leader__linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
             <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 8.5H4V20h2.94V8.5ZM5.47 3.9a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4ZM20 13.63c0-3.1-1.66-4.54-3.87-4.54-1.78 0-2.58 1-3.02 1.68V8.5H10.2c.04.83 0 11.5 0 11.5h2.9v-6.42c0-.26.02-.52.1-.7.2-.52.68-1.06 1.48-1.06 1.05 0 1.47.8 1.47 1.96V20H20v-6.37Z"/></svg>
@@ -666,6 +648,22 @@ p{margin:0;}
           <h3 className="leader__name">St Francis Holder</h3>
           <p className="leader__role">Chief Executive Officer (CEO)</p>
           <p className="leader__bio">Strategic leader with a strong focus on growth, innovation, and delivering value through technology-driven solutions worldwide.</p>
+        </div>
+      </article>
+
+      <article className="leader">
+        <div className="leader__media">
+          <div className="leader__photo">
+            <img src="/image copy.png" alt="Atul Jain" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+          </div>
+          <a href="https://linkedin.com" className="leader__linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 8.5H4V20h2.94V8.5ZM5.47 3.9a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4ZM20 13.63c0-3.1-1.66-4.54-3.87-4.54-1.78 0-2.58 1-3.02 1.68V8.5H10.2c.04.83 0 11.5 0 11.5h2.9v-6.42c0-.26.02-.52.1-.7.2-.52.68-1.06 1.48-1.06 1.05 0 1.47.8 1.47 1.96V20H20v-6.37Z"/></svg>
+          </a>
+        </div>
+        <div>
+          <h3 className="leader__name">Atul Jain</h3>
+          <p className="leader__role">Chief Technology Officer (CTO)</p>
+          <p className="leader__bio">Visionary technologist with extensive experience in architecting scalable IT infrastructure, AI solutions, and digital transformation initiatives.</p>
         </div>
       </article>
     </div>
