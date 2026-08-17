@@ -1,13 +1,24 @@
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import React, { useEffect } from "react";
-import heroBg from "../assets/image.png";
+import React, { useState, useEffect } from "react";
+import heroBg1 from "../assets/image.png";
+import heroBg2 from "../assets/services-hero.png";
+import heroBg3 from "../assets/data-center-hero.png";
 import vigilLogo from "../assets/vigil-logo.png";
 import limitlessLogo from "../assets/limitless-logo.png";
 import sentinelLogo from "../assets/sentinel-logo.png";
 import serviceCtaBg from "../assets/service-cta-bg.png";
 
 export default function Home() {
+  const [currentBg, setCurrentBg] = useState(0);
+  const heroBackgrounds = [heroBg1, heroBg2, heroBg3];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % heroBackgrounds.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="home-page">
@@ -135,10 +146,14 @@ p{margin:0;}
    …and delete the .ph-label span inside it. */
 .hero__bg{
   position:absolute;inset:0;
-  background-image:url('${heroBg}');
   background-size:cover;
   background-position:center right;
   pointer-events:none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.hero__bg.active {
+  opacity: 1;
 }
 /* keeps the headline readable once the artwork is in place */
 .hero__bg::after{
@@ -514,7 +529,14 @@ p{margin:0;}
       
       <header className="hero" id="home">
   
-  <div className="hero__bg" aria-hidden="true"></div>
+  {heroBackgrounds.map((bg, index) => (
+    <div 
+      key={index}
+      className={`hero__bg ${index === currentBg ? 'active' : ''}`} 
+      style={{ backgroundImage: `url(${bg})` }}
+      aria-hidden="true"
+    ></div>
+  ))}
 
   <div className="container">
     <Navbar />
@@ -619,7 +641,7 @@ p{margin:0;}
         </span>
         <h3 className="service__title">Telecom Infra</h3>
         <p className="service__text">End-to-end telecom infrastructure solutions for seamless connectivity and performance.</p>
-        <a href="/services" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+        <a href="/services/telecom-management" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
       </article>
 
       <article className="service">
@@ -628,7 +650,7 @@ p{margin:0;}
         </span>
         <h3 className="service__title">Data Center Solutions</h3>
         <p className="service__text">High-performance data centers designed for reliability, security and scalability.</p>
-        <a href="/services" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+        <a href="/services/data-center" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
       </article>
 
       <article className="service">
@@ -637,7 +659,7 @@ p{margin:0;}
         </span>
         <h3 className="service__title">IT Infra</h3>
         <p className="service__text">Modern IT infrastructure services to power your business operations efficiently.</p>
-        <a href="/services" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+        <a href="/services/infrastructure" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
       </article>
 
       <article className="service">
@@ -646,7 +668,7 @@ p{margin:0;}
         </span>
         <h3 className="service__title">Security</h3>
         <p className="service__text">Advanced security solutions to protect your data, applications and infrastructure.</p>
-        <a href="/services" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+        <a href="/services/security" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
       </article>
 
       <article className="service">
@@ -655,7 +677,7 @@ p{margin:0;}
         </span>
         <h3 className="service__title">Cloud Solutions</h3>
         <p className="service__text">Scalable cloud services for agility, innovation and cost efficiency.</p>
-        <a href="/services" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+        <a href="/services/cloud-solutions" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
       </article>
 
       <article className="service">
@@ -664,7 +686,7 @@ p{margin:0;}
         </span>
         <h3 className="service__title">Network &amp; Broadband</h3>
         <p className="service__text">High-speed networking solutions ensuring reliable connectivity wherever you operate.</p>
-        <a href="/services" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+        <a href="/services/network-design" className="link">Learn More <svg viewBox="0 0 24 24" className="arrow"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
       </article>
     </div>
   </div>
